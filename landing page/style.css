@@ -1,13 +1,28 @@
+:root {
+  --bg-color: black;
+  --text-color: white;
+  --primary-color: white;
+  --container-max-width: 1200px;
+  --padding: 20px;
+  --header-padding: 20px 0;
+  --nav-item-margin-right: 20px;
+  --button-width: 600px;
+  --button-height: 50px;
+  --footer-margin: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 20px;
+  padding: var(--padding);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -15,8 +30,7 @@ body {
 
 .header {
   text-align: center;
-  padding: 20px 0;
-  color: white;
+  padding: var(--header-padding);
 }
 
 .header h1 {
@@ -25,7 +39,7 @@ body {
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 10px 0;
 }
@@ -38,16 +52,25 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 20px;
+  margin-right: var(--nav-item-margin-right);
 }
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
 nav ul li a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .content {
   flex: 1;
-  padding: 20px;
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -55,33 +78,37 @@ nav ul li a {
   max-width: 100%;
   height: auto;
 }
-.content button {
-  background-color: white;
-  width: 600px;
-  height: 50px;
+
+.btn {
+  background-color: var(--primary-color);
+  width: var(--button-width);
+  height: var(--button-height);
+  border: none;
+  color: var(--bg-color);
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .footer {
   text-align: center;
-}
-
-.footer nav {
-  display: inline-block;
+  padding: var(--padding);
 }
 
 .footer ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer ul li {
   display: inline;
-  margin: 10px;
+  margin: var(--footer-margin);
 }
 
 .footer ul li a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 768px) {
@@ -89,17 +116,21 @@ nav ul li a {
     padding: 10px;
   }
 
-  .content button {
+  .btn {
     width: 100%;
+  }
+
+  nav {
+    justify-content: center;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .nav ul {
+  nav ul {
     flex-direction: column;
   }
 
-  .nav ul li {
+  nav ul li {
     margin-right: 0;
     margin-bottom: 10px;
   }
